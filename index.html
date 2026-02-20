@@ -172,20 +172,18 @@
 
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
-            overflow: hidden;
             border-radius: 12px;
             background: #0a1628;
+            overflow: hidden;
         }
 
-        .video-wrapper iframe {
+        .video-wrapper iframe,
+        .video-wrapper .wistia_responsive_wrapper {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border: none;
         }
 
         /* Placeholder for video - remove this once you add your Loom */
@@ -320,30 +318,18 @@
         <div class="video-section">
             <div class="video-container">
                 <div class="video-wrapper">
-                    <!-- 
-                    ================================
-                    REPLACE THIS SECTION WITH YOUR LOOM EMBED CODE
-                    ================================
-                    
-                    1. Go to your Loom video
-                    2. Click "Share" 
-                    3. Copy the embed code
-                    4. Replace the entire <div class="video-placeholder">...</div> section below
-                       with your Loom iframe embed code
-                    
-                    Your Loom embed will look something like:
-                    <iframe src="https://www.loom.com/embed/YOUR_VIDEO_ID" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                    
-                    ================================
-                    -->
-                    <div class="video-placeholder">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polygon points="10 8 16 12 10 16 10 8" fill="currentColor"></polygon>
-                        </svg>
-                        <p>Your Loom video will appear here</p>
-                    </div>
-                    <!-- END VIDEO PLACEHOLDER -->
+                    <!-- Wistia Video Embed -->
+                    <script src="https://fast.wistia.com/player.js" async></script>
+                    <script src="https://fast.wistia.com/embed/f511jlwae2.js" async type="module"></script>
+                    <style>
+                        wistia-player[media-id='f511jlwae2']:not(:defined) { 
+                            background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/f511jlwae2/swatch'); 
+                            display: block; 
+                            filter: blur(5px); 
+                            padding-top:65.0%; 
+                        }
+                    </style>
+                    <wistia-player media-id="f511jlwae2" aspect="1.5384615384615385"></wistia-player>
                 </div>
             </div>
 
@@ -363,7 +349,7 @@
             </p>
             
             <div class="social-icons">
-                <a href="mailto:reginald@skyboundai.net" class="social-icon" title="Email">
+                <a href="/cdn-cgi/l/email-protection#4d3f282a24232c21290d3e26342f223823292c2463232839" class="social-icon" title="Email">
                     <svg fill="currentColor" viewBox="0 0 24 24">
                         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                     </svg>
@@ -394,7 +380,7 @@
         </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Create floating particles
         function createParticle() {
             const particle = document.createElement('div');
@@ -412,10 +398,4 @@
         // Generate particles periodically
         setInterval(createParticle, 800);
         
-        // Create initial particles
-        for(let i = 0; i < 15; i++) {
-            setTimeout(createParticle, i * 500);
-        }
-    </script>
-</body>
-</html>
+        /
